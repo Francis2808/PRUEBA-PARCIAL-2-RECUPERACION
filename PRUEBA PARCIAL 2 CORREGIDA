@@ -1,0 +1,142 @@
+//Francis Latta #584 9/7/2020
+#include <string>
+#include <math.h>
+#include <iostream>
+#include <clocale>
+using namespace std;
+int main()
+{
+	setlocale(LC_CTYPE,"Spanish");
+	char opc;
+	float sueldo;
+	int num,num2,num3,num4,num5,res,opcion;
+	string contra,contraC,user,userC,userminus;
+	contra="0602";
+	user="ESTUDIANTE";
+	userminus="estudiante";
+	cout<<("\t\t\tEVALUACION SEGUNDO PARCIAL")<<("\nIngrese el usuario:\n");
+	cin>>userC;
+	cout<<("\nIngrese Contraseña:\n");
+	cin>>contraC;
+	if(user==userC&&contra==contraC||userminus==userC&&contra==contraC)
+	{
+		system ("cls");
+		cout<<("\t\t\t*** BIENVENIDO AL MENÚ DE OPCIONES ***");
+		cout<<("\n\n(a)Ingrese un numero entero de 3 cifras y se le dara a conocer el numero intermedio en valor y el numero intermedio visual");
+		cout<<("\n(b)Requisitos para los deportes ESPOCH");
+		cout<<("\n(c)Calcule el sueldo que le corresponde al trabajador de una empresa que cobra 20.000 dólares anuales")<<endl;
+		cin>>opc;
+		switch(opc)
+		{
+			case 'a':
+				system ("cls");
+				cout<<("\nHA SELECCIONADO LA OPCION A:")<<("\nIngrese el numero:\n");
+				cin>>num;
+				if(num<0)
+				{
+					num=num*-1;//en caso de que sea negativo
+				}
+				if(num<100||num>999)
+				{
+					cout<<("\nNumero mas/menos de tres cifras o numero no existente")<<endl;
+				}
+				else
+				{
+					num2=num/10;
+				    num2=num2%10; //numero medio visual /cifra2
+				    cout<<("\n")<<num2<<(" Es el numero de medio visual")<<endl;
+				    num3=num/10;
+				    num3=num3%10;
+				    num4=num%10;//cifra 3
+				    num5=num/10;
+				    num5=num5/10;//cifra 1
+				    if(num5==num4&&num4==num2)
+				    {
+				    	cout<<("\nError todos los numeros son iguales y no hay valor cuantitativo medio.")<<endl;
+					}
+					else
+					{
+						if(num5>num2&&num2>num4)
+						{
+							cout<<("\nEl numero de medio cuantitativo es: ")<<num2<<endl;
+						}
+						else
+						{
+							if(num2>num5&&num5>num4)
+							{
+								cout<<("\nEl numero de medio cuantitativo es: ")<<num5<<endl;
+							}
+							else
+							{
+								cout<<("\nEl numero de medio cuantitativo es: ")<<num4<<endl;
+							}
+						}
+					}
+				}
+				break;
+			case 'b':
+				system ("cls");
+				cout<<("\n**MENÚ DEPORTES ESPOCH**")<<("\n1.Natacion")<<("\n2.Tenis")<<("\n3.Golf")<<endl;
+				cin>>opcion;
+				switch(opcion)
+				{
+					case 1:
+						cout<<("\nUsted necesita un de traje de baño, gorro y visores")<<endl;
+						system ("pause");
+						break;
+					case 2:
+						cout<<("\nUsted necesita un raqueta una red y un adversario para jugar")<<endl;
+						break;
+					case 3:
+						cout<<("\nUsted necesita un palo de golf y un pelota de golf")<<endl;
+						system ("pause");
+						break;
+					default:
+						cout<<("\nERROR NO EXISTE LA OPCION")<<endl;
+						system ("pause");
+				}
+				break;
+			case 'c':
+				system ("cls");
+				cout<<("\nMENU DE OPCIONES")<<("\n1.Ha trabajado más de 10 años")<<("\n2.Ha trabajo menos de 10 años pero más que 5")<<("\n3.Ha trabajado menos de 5 años pero más que 3")<<("\n4.Ha trabajado menos de 3 años")<<endl;
+				cin>>opcion;
+				switch(opcion)
+				{
+					case 1:
+						sueldo=20000*0.1;
+						cout<<("\nEl sueldo es: ")<<20000+sueldo<<endl;
+						system ("pause");
+						break;
+					case 2:
+						sueldo=20000*0.07;
+						cout<<("\nEl sueldo es: ")<<20000+sueldo<<endl;
+						system ("pause");
+						break;
+					case 3:
+						sueldo=20000*0.05;
+						cout<<("\nEl sueldo es: ")<<20000+sueldo<<endl;
+					    system ("pause");
+					    break;
+					case 4:
+					    sueldo=20000*0.03;
+					    cout<<("\nEl sueldo es: ")<<20000+sueldo<<endl;
+					    system ("pause");
+					    break;
+					default:
+					    cout<<("No existe esa opcion")<<endl;
+					    system ("pause");
+				}
+				break;
+			default:
+			    cout<<("Esa opcion no existe")<<endl;
+			    system ("pause");	
+		}
+		
+	}
+	else
+	{
+		cout<<("Ingreso de sesion fallido.")<<endl;
+		system ("pause");
+	}
+	return 0;
+}
